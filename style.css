@@ -1,0 +1,200 @@
+/* ### Primary
+
+- Strong cyan: hsl(172, 67%, 45%)
+
+### Neutral
+
+- Very dark cyan: hsl(183, 100%, 15%)
+- Dark grayish cyan: hsl(186, 14%, 43%)
+- Grayish cyan: hsl(184, 14%, 56%)
+- Very light grayish cyan: hsl(189, 41%, 97%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (form inputs): 24px
+
+### Font
+
+- Family: [Space Mono](https://fonts.google.com/specimen/Space+Mono)
+- Weights: 700 */
+
+@font-face {
+  font-family: "Rubix";
+  src: url("fonts/Space_Mono/SpaceMono-Regular.ttf");
+  font-family: "Space_Mono";
+  src: url("fonts/Space_Mono/SpaceMono-Regular.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Space_Mono";
+  font-weight: bold;
+}
+
+:root {
+  font-size: 62.5%;
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+}
+
+.blue-wrapper {
+  height: 100%;
+  background-color: hsl(185, 41%, 84%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  background-color: hsl(0, 0%, 100%);
+  gap: 4rem;
+  padding: 3rem;
+  border-radius: 2rem;
+}
+
+.left {
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  width: 39%;
+}
+
+.right {
+  width: 50%;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 1rem;
+  padding: 3rem;
+}
+
+.two-rows {
+  display: grid;
+  gap: 9rem;
+}
+
+.tip-amount {
+  padding-bottom: 2rem;
+}
+
+.tip-amount,
+.total-amount {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 3rem;
+  align-items: center;
+}
+
+#tip-el,
+#total-el {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  justify-items: start;
+}
+
+.select-tip {
+  padding-top: 1rem;
+}
+
+.bill,
+.people {
+  width: 100%;
+}
+
+input,
+button {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+input {
+  outline: 1px solid hsl(172, 67%, 45%);
+  width: 100%;
+  height: 4rem;
+  font-size: 3rem;
+  background-color: hsl(189, 41%, 97%);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  gap: 1rem;
+}
+
+button {
+  display: inline-block;
+  width: 10rem;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 0%, 100%);
+  font-size: 2rem;
+  padding: 1rem 2rem;
+}
+
+button:hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+button:hover,
+input:hover {
+  outline: 2px solid hsl(172, 67%, 45%);
+  cursor: pointer;
+}
+
+h3 {
+  font-size: 1.8rem;
+  padding-bottom: 0.5rem;
+  color: hsl(186, 14%, 43%);
+}
+
+span {
+  font-size: 1.6rem;
+  color: hsl(186, 14%, 43%);
+  align-self: start;
+}
+
+.white {
+  font-size: 1.8rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.green {
+  font-size: 5rem;
+  color: hsl(172, 67%, 45%);
+}
+
+.error {
+  color: #e03131;
+}
+
+/* .reset {
+  width: 3rem;
+} */
+/* 
+
+.bill {
+}
+.select-tip {
+}
+
+
+.people {
+}
+.number {
+}
+
+.values-wrapper {
+}
+.tip-amount {
+}
+.total-amount {
+} */
