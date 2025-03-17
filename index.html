@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tip Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="blue-wrapper">
@@ -12,7 +13,7 @@
         <div class="left">
           <div class="bill">
             <h3>Bill</h3>
-            <input id="ff" type="number" />
+            <input class="image dollar" id="bill" type="number" />
           </div>
           <div class="select-tip">
             <h3>Select Tip %</h3>
@@ -22,13 +23,20 @@
               <button>15%</button>
               <button>25%</button>
               <button>50%</button>
-              <button>a</button>
+              <input
+                class="custom"
+                id="custom"
+                type="text"
+                placeholder="Custom"
+              />
             </div>
           </div>
           <div class="people">
-            <h3>Number of People</h3>
-            <p class="error">Can't be zero</p>
-            <input id="f" type="number" placeholder="" />
+            <div class="human">
+              <h3>Number of People</h3>
+              <p class="error">Can't be zero</p>
+            </div>
+            <input class="image person" id="people" type="number" />
           </div>
         </div>
         <div class="right">
@@ -37,12 +45,12 @@
               <div class="tip-amount">
                 <p class="white">Tip Amount</p>
                 <span>/ person</span>
-                <p id="tip-el" class="green">$0.00</p>
+                <p id="tip" class="green">$<span id="tip-el">0</span></p>
               </div>
               <div class="total-amount">
                 <p class="white">Total Amount</p>
                 <span>/ person</span>
-                <p id="total-el" class="green">$0.00</p>
+                <p id="total" class="green">$<span id="total-el">0</span>.00</p>
               </div>
             </div>
             <div>
