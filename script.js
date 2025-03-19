@@ -1,58 +1,57 @@
 "use strict";
 const form = document.querySelector("form");
+let bill = document.querySelector("#bill");
+const buttons = document.querySelector(".buttons");
+let people = document.querySelector("#people");
+let custom = document.querySelector("#custom");
+let tipEl = document.querySelector("#tip-el");
+let totalEl = document.querySelector("#total-el");
+const reset = document.querySelector(".reset");
+
+let billNum = 0;
+let percentage = 0;
+let peopleNum = 0;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-let bill = document.querySelector("#bill");
-let custom = document.querySelector("#custom");
-let people = document.querySelector("#people");
-let tipEl = document.querySelector("#tip-el");
-let totalEl = document.querySelector("#total-el");
-const buttons = document.querySelector(".buttons");
-
-const calc = () => {
-  let totalAmount = "";
-  let clickedTipText = "";
-
-  let tipNum = "";
-  let peopleNum = "";
-  let totalNum = "";
-
-  bill.addEventListener("input", () => {
-    totalEl.textContent = bill.value;
-    totalAmount = totalEl.textContent;
-    totalNum = Number(totalAmount);
-    check();
-  });
-
-  buttons.addEventListener("click", (e) => {
-    const clicked = e.target.closest("button");
-    if (!clicked) return;
-    clickedTipText = clicked.textContent;
-
-    tipNum = parseFloat(clickedTipText) / 100;
-    check();
-  });
-
-  people.addEventListener("input", () => {
-    peopleNum = Number(people.value);
-    console.log(peopleNum);
-    check();
-  });
-
-  function check() {
-    if (
-      typeof tipNum === "number" &&
-      typeof totalNum === "number" &&
-      typeof peopleNum === "number"
-    ) {
-      tipEl.textContent = ((tipNum * totalNum) / peopleNum).toFixed(2);
-      console.log("WORKED!!!");
-    } else {
-      console.log("did not work");
-    }
+const updateValues = () => {
+  if (
+    !isNaN(bill.value) &&
+    !isNaN(percentage) &&
+    people.value > 0 &&
+    typeof peopleNum === "number"
+  ) {
+    billNum = +bill.value;
+    peopleNum = +people.value;
+    let tip = billNum * percentage;
+    tipEl.textContent = (tip / peopleNum).toFixed(2);
+    totalEl.textContent = ((billNum + tip) / peopleNum).toFixed(2);
   }
 };
-calc();
+
+bill.addEventListener("input", () => {
+  updateValues();
+});
+
+buttons.addEventListener("click", (e) => {
+  const clicked = e.target.closest("button");
+  if (!clicked) return;
+  percentage = parseFloat(clicked.textContent) / 100;
+  updateValues();
+});
+
+people.addEventListener("input", () => {
+  updateValues();
+});
+
+reset.addEventListener("click", () => {
+  bill.value = "";
+  people.value = "";
+  billNum = 0;
+  percentage = 0;
+  peopleNum = 0;
+  tipEl.textContent = "0.00";
+  totalEl.textContent = "0.00";
+});
